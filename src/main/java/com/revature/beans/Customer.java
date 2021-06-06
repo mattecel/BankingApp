@@ -9,16 +9,23 @@ public class Customer {
 	private String password;
 	private String first;
 	private String last;
+	private String status;
 	
 	private List<Account> accounts;
 	
-	public Customer(Integer id, String username, String password, String first, String last, List<Account> accounts) {
+	public Customer() {
+		super();
+	}
+
+	public Customer(Integer id, String username, String password, String first, String last, String status,
+			List<Account> accounts) {
 		super();
 		this.id = id;
 		this.username = username;
 		this.password = password;
 		this.first = first;
 		this.last = last;
+		this.status = status;
 		this.accounts = accounts;
 	}
 
@@ -62,6 +69,14 @@ public class Customer {
 		this.last = last;
 	}
 
+	public String getStatus() {
+		return status;
+	}
+
+	public void setStatus(String status) {
+		this.status = status;
+	}
+
 	public List<Account> getAccounts() {
 		return accounts;
 	}
@@ -70,10 +85,6 @@ public class Customer {
 		this.accounts = accounts;
 	}
 
-	public Customer() {
-		super();
-	}
-	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -83,6 +94,7 @@ public class Customer {
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((last == null) ? 0 : last.hashCode());
 		result = prime * result + ((password == null) ? 0 : password.hashCode());
+		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((username == null) ? 0 : username.hashCode());
 		return result;
 	}
@@ -121,6 +133,11 @@ public class Customer {
 				return false;
 		} else if (!password.equals(other.password))
 			return false;
+		if (status == null) {
+			if (other.status != null)
+				return false;
+		} else if (!status.equals(other.status))
+			return false;
 		if (username == null) {
 			if (other.username != null)
 				return false;
@@ -132,8 +149,6 @@ public class Customer {
 	@Override
 	public String toString() {
 		return "Customer [id=" + id + ", username=" + username + ", password=" + password + ", first=" + first
-				+ ", last=" + last + ", accounts=" + accounts + "]";
+				+ ", last=" + last + ", status=" + status + ", accounts=" + accounts + "]";
 	}
-	
-	
 }

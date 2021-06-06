@@ -6,28 +6,27 @@ public class Transaction {
 	private Account fromAcc;
 	private Account toAcc;
 	private Double amount;
+	private String type;
 	private String status;
 	
-	public Transaction () {
-		super();
-	}
-	
-	public Transaction (Integer id, Account fromAcc, Account toAcc, Double amount, String status) {
+	public Transaction(Integer id, Account fromAcc, Account toAcc, Double amount, String type, String status) {
 		super();
 		this.id = id;
 		this.fromAcc = fromAcc;
 		this.toAcc = toAcc;
 		this.amount = amount;
+		this.type = type;
 		this.status = status;
 	}
 
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	
+
 	public Account getFromAcc() {
 		return fromAcc;
 	}
@@ -52,6 +51,14 @@ public class Transaction {
 		this.amount = amount;
 	}
 
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
 	public String getStatus() {
 		return status;
 	}
@@ -66,8 +73,10 @@ public class Transaction {
 		int result = 1;
 		result = prime * result + ((amount == null) ? 0 : amount.hashCode());
 		result = prime * result + ((fromAcc == null) ? 0 : fromAcc.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
 		result = prime * result + ((status == null) ? 0 : status.hashCode());
 		result = prime * result + ((toAcc == null) ? 0 : toAcc.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
 		return result;
 	}
 
@@ -90,6 +99,11 @@ public class Transaction {
 				return false;
 		} else if (!fromAcc.equals(other.fromAcc))
 			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
 		if (status == null) {
 			if (other.status != null)
 				return false;
@@ -100,12 +114,20 @@ public class Transaction {
 				return false;
 		} else if (!toAcc.equals(other.toAcc))
 			return false;
+		if (type == null) {
+			if (other.type != null)
+				return false;
+		} else if (!type.equals(other.type))
+			return false;
 		return true;
 	}
 
 	@Override
 	public String toString() {
-		return "Transaction [fromAcc=" + fromAcc + ", toAcc=" + toAcc + ", amount=" + amount + ", status=" + status
-				+ "]";
+		return "Transaction [id=" + id + ", fromAcc=" + fromAcc + ", toAcc=" + toAcc + ", amount=" + amount + ", type="
+				+ type + ", status=" + status + "]";
 	}
+	
 }
+	
+	
