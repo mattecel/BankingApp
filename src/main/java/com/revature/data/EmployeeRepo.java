@@ -1,5 +1,7 @@
 package com.revature.data;
 
-public interface EmployeeRepo {
+import com.revature.beans.Employee;
 
+public interface EmployeeRepo {
+	Employee getEmployee(String user, String pass);
 }

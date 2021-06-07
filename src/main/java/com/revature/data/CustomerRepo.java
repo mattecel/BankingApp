@@ -6,9 +6,9 @@ import com.revature.beans.Customer;
 
 public interface CustomerRepo {
 	Customer addCustomer(Customer c);
-	Customer getCustomer(Integer i);
+	Customer getCustomerById(Integer id);
 	Customer getCustomer(String user, String pass);
-	List<Customer> getCustomer();
+	List<Customer> getCustomers();
 	Customer updateCustomer(Customer c);
 	Customer removeCustomer(Customer c);
 }

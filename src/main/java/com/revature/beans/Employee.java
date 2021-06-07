@@ -8,6 +8,10 @@ public class Employee {
 	private String first;
 	private String last;
 
+	public Employee() {
+		super();
+	}
+	
 	public Employee(Integer id, String username, String password, String first, String last) {
 		super();
 		this.id = id;

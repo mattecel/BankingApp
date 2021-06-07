@@ -1,5 +1,8 @@
 package com.revature.data;
 
-public interface AccountRepo {
+import com.revature.beans.Account;
 
+public interface AccountRepo {
+	Account getAccountById(Integer id);
+	Account updateAccount(Integer id, Double balance);
 }

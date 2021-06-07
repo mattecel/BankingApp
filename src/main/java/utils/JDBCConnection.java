@@ -12,7 +12,7 @@ public class JDBCConnection {
 	private static Connection conn = null;
 
 	// defining a method to get the connection
-	private static Connection getConnection() {
+	public static Connection getConnection() {
 
 		try {
 
@@ -24,7 +24,7 @@ public class JDBCConnection {
 
 				Properties props = new Properties();
 
-				InputStream input = JDBCConnection.class.getClassLoader().getResourceAsStream("connection.properties");
+				InputStream input = JDBCConnection.class.getClassLoader().getResourceAsStream("connections.properties");
 
 				props.load(input);
 
@@ -43,5 +43,4 @@ public class JDBCConnection {
 
 		return conn;
 	}
-
 }
