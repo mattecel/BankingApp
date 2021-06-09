@@ -1,15 +1,19 @@
 package com.revature.data;
 
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+
+//import org.apache.log4j.Logger;
 
 import com.revature.beans.Employee;
 
 import utils.JDBCConnection;
 
 public class EmployeeRepoImpl implements EmployeeRepo {
+//	static Logger log = Logger.getLogger(EmployeeRepoImpl.class.getName());
 
 	private Connection conn = JDBCConnection.getConnection();
 
@@ -32,7 +36,8 @@ public class EmployeeRepoImpl implements EmployeeRepo {
 				e.setPassword(rs.getString("epassword"));
 				e.setFirst(rs.getString("efirstname"));
 				e.setLast(rs.getString("elastname"));
-
+				
+//				log.info("Grabbing employee by id");
 				return e;
 			}
 

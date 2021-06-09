@@ -1,24 +1,24 @@
 package repotests;
 
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Savepoint;
-import java.util.ArrayList;
-import java.util.List;
+import java.math.BigDecimal;
 
 import org.junit.*;
 
-import com.revature.beans.Customer;
-import com.revature.data.CustomerRepoImpl;
+import com.revature.beans.Account;
 
-import utils.JDBCConnection;
+import com.revature.data.AccountRepo;
+import com.revature.data.AccountRepoImpl;
 
 public class RepoTest {
-	
-	private CustomerRepoImpl cr = new CustomerRepoImpl();
+
+	private AccountRepo ar = new AccountRepoImpl();
 
 	@Test
-	public void getCustomerById() {
-		System.out.println(cr.getCustomerById(1)) ;
+	public void addTest() {
+		BigDecimal bd = new BigDecimal("4000.00");
+		Integer id = 1;
+		Account expected = new Account(id, bd, "checking");
+		Account check = ar.getAccountById(id);
+		Assert.assertEquals(expected, check);
 	}
 }

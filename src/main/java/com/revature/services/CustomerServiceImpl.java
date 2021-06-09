@@ -1,7 +1,11 @@
 package com.revature.services;
 
+import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
+import com.revature.beans.Account;
 import com.revature.beans.Customer;
 import com.revature.data.CustomerRepo;
 import com.revature.data.CustomerRepoImpl;
@@ -21,6 +25,7 @@ public class CustomerServiceImpl implements CustomerService {
 
 	@Override
 	public void register(Scanner scanner) {
+		List<Account> accounts = new ArrayList<Account>();
 		Customer c = new Customer();
 
 		// this customer will be pending until an employee confirms them
@@ -34,24 +39,36 @@ public class CustomerServiceImpl implements CustomerService {
 		c.setFirst(scanner.nextLine());
 		System.out.println("Please enter your last name: ");
 		c.setLast(scanner.nextLine());
-
+		
+		Account checking = new Account();
+		checking.setType("checking");
+		System.out.println("Please enter how much you would like to store in your checking account: ");
+		BigDecimal balance = new BigDecimal(scanner.nextLine());
+		checking.setBalance(balance);
+		accounts.add(checking);
+		
+		Account saving = new Account();
+		saving.setType("saving");
+		System.out.println("Please enter how much you would like to store in your saving account: ");
+		BigDecimal sbalance = new BigDecimal(scanner.nextLine());
+		saving.setBalance(sbalance);
+		accounts.add(saving);
+		
+		c.setAccounts(accounts);
+		
 		System.out.println("Please confirm there are no errors in this information(y/n): ");
 		System.out.println(
-				"Username: " + c.getUsername() + "\n" + "First Name: " + c.getFirst() + " Last Name:  " + c.getLast());
+				"Username: " + c.getUsername() + "\n" + "Password: " + c.getPassword() + "First Name: " 
+				+ c.getFirst() + " Last Name:  " + c.getLast() + "Your accounts: " + c.getAccounts());
 
 		// y or n for above question
 		String answer = scanner.nextLine();
 
 		if ("y".equalsIgnoreCase(answer)) {
 			ca.addCustomer(c);
-			// checking to see if customer was made
-			if (c.getId() != 0) {
-				System.out.println("Customer information is registered. Please wait to be confirmed.");
-			} else {
-				System.out.println("Registry has failed. Please try again later.");
-			}
+			System.out.println("Registry Complete. Please wait to be confirmed by an employee.\n");
 		} else {
-			System.out.println("Customer information has not been stored.");
+			System.out.println("Customer information has not been stored.\n");
 		}
 	}
 

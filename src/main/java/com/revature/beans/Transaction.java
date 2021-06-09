@@ -1,15 +1,21 @@
 package com.revature.beans;
 
+import java.math.BigDecimal;
+
 public class Transaction {
-	
+
 	private Integer id;
-	private Account fromAcc;
-	private Account toAcc;
-	private Double amount;
+	private Integer fromAcc;
+	private Integer toAcc;
+	private BigDecimal amount;
 	private String type;
 	private String status;
-	
-	public Transaction(Integer id, Account fromAcc, Account toAcc, Double amount, String type, String status) {
+
+	public Transaction() {
+		super();
+	}
+
+	public Transaction(Integer id, Integer fromAcc, Integer toAcc, BigDecimal amount, String type, String status) {
 		super();
 		this.id = id;
 		this.fromAcc = fromAcc;
@@ -27,27 +33,27 @@ public class Transaction {
 		this.id = id;
 	}
 
-	public Account getFromAcc() {
+	public Integer getFromAcc() {
 		return fromAcc;
 	}
 
-	public void setFromAcc(Account fromAcc) {
+	public void setFromAcc(Integer fromAcc) {
 		this.fromAcc = fromAcc;
 	}
 
-	public Account getToAcc() {
+	public Integer getToAcc() {
 		return toAcc;
 	}
 
-	public void setToAcc(Account toAcc) {
+	public void setToAcc(Integer toAcc) {
 		this.toAcc = toAcc;
 	}
 
-	public Double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(Double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
 
@@ -127,7 +133,5 @@ public class Transaction {
 		return "Transaction [id=" + id + ", fromAcc=" + fromAcc + ", toAcc=" + toAcc + ", amount=" + amount + ", type="
 				+ type + ", status=" + status + "]";
 	}
-	
+
 }
-	
-	

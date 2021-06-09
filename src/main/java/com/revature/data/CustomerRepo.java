@@ -5,10 +5,13 @@ import java.util.List;
 import com.revature.beans.Customer;
 
 public interface CustomerRepo {
-	Customer addCustomer(Customer c);
+	void addCustomer(Customer c);
+	void updateCustomer(Integer id);
+	
 	Customer getCustomerById(Integer id);
 	Customer getCustomer(String user, String pass);
+	Customer getCustomerNoAcc(String user, String pass);
 	List<Customer> getCustomers();
-	Customer updateCustomer(Customer c);
-	Customer removeCustomer(Customer c);
+	
+	
 }

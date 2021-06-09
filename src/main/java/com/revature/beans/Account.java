@@ -1,37 +1,44 @@
 package com.revature.beans;
 
+import java.math.BigDecimal;
+
 public class Account {
-	
+
 	private Integer id;
-	private Double balance;
+	private BigDecimal balance;
 	private String type;
-	
-	public Account () {
+
+	public Account() {
 		super();
 	}
-	
-	public Account(Integer id, Double balance, String type) {
+
+	public Account(Integer id, BigDecimal balance, String type) {
 		super();
 		this.id = id;
 		this.balance = balance;
 		this.type = type;
 	}
-	
+
 	public Integer getId() {
 		return id;
 	}
+
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Double getBalance() {
+
+	public BigDecimal getBalance() {
 		return balance;
 	}
-	public void setBalance(Double balance) {
+
+	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
 	}
+
 	public String getType() {
 		return type;
 	}
+
 	public void setType(String type) {
 		this.type = type;
 	}
@@ -78,7 +85,4 @@ public class Account {
 		return "Account [id=" + id + ", balance=" + balance + ", type=" + type + "]";
 	}
 
-	
-	
-	
 }
