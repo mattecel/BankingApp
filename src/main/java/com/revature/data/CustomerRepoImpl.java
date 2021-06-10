@@ -39,6 +39,7 @@ public class CustomerRepoImpl implements CustomerRepo {
 
 			// grabbing new customers id and also checking to see if it was made
 			Customer addedCustomer = getCustomerNoAcc(c.getUsername(), c.getPassword());
+			
 			for (Account acc : c.getAccounts()) {
 				ar.addAccount(addedCustomer.getId(), acc.getBalance(), acc.getType());
 			}
